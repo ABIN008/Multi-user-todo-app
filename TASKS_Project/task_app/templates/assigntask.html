@@ -1,0 +1,121 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>index</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    </head>
+    <body>
+      {% block body %}
+    
+      {% if task.title == None  %}      
+        {% for message in messages %}
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                    <p id="message-timer" class="alert alert-success float-center text-center">{{message}}</p>
+                {% endif %}
+        {% endfor %}
+        {% for i in task %}           
+                <div class="container ">
+                    <div class="row">
+                        <div class="col-lg-6 ">
+                            <div class="card" style="width: 34rem;">
+                                <div class="card-body">
+                                    {% if i.status == 'open' %}
+                                        <div class="spinner-grow text-danger" role="status" style="height:25px ;width:25px;">
+                                            <span class="visually"></span>
+                                        </div>                            
+                                    {% elif i.status == 'In Progress' %}
+                                        <div class="spinner-grow text-warning" role="status">
+                                            <span class="visually"></span>
+                                        </div>                                        
+                                    {% else %}
+                                        <div class="spinner-grow text-success" role="status">
+                                            <span class="visually"></span>
+                                        </div>
+                                    {% endif %} 
+                                    <h5 class="card-title" style="color: rgb(18, 18, 18);">Task</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Task Assigned to : {{i.creater}}</h6>
+                                    <h6 class="card-subtitle mb-2 ">Task Name : {{i.task_name}}</h6>
+                                    <h6 class="card-subtitle mb-2 ">Status : {{i.status}}</h6>
+                                    <h6 class="card-subtitle mb-2 ">Task Assigned By : {{i.user}}</h6>
+                                    <p class="card-text">Content : {{i.content}}</p>
+        
+                                    <a href="{% url 'taskedit' i.id %}" class="btn btn-info">Update Task</a>                                  
+                                    <a href="{% url 'taskdelete' i.id %}" class="btn btn-danger">Delete Task</a>
+                                </div>
+                            </div><br><br>
+                        </div>
+                    </div>
+                </div>                
+        {% endfor %} 
+    {% else %} 
+        <h2> &nbsp;&nbsp;&nbsp;There is no tasks assigned to you.... </h2>
+            
+    {% endif %} 
+        {% endblock %}
+      
+        
+        <script src="" async defer></script>
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+</html>
+
+
+{% comment %} <h1>hello</h1>
+    {% if task.title == None  %}      
+        {% for message in messages %}
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                    <p id="message-timer" class="alert alert-success float-center text-center">{{message}}</p>
+                {% endif %}
+        {% endfor %}
+        {% for i in task %}           
+                <div class="container ">
+                    <div class="row">
+                        <div class="col-lg-6 ">
+                            <div class="card" style="width: 34rem;">
+                                <div class="card-body">
+                                    {% if i.status == 'open' %}
+                                        <div class="spinner-grow text-danger" role="status" style="height:25px ;width:25px;">
+                                            <span class="visually"></span>
+                                        </div>                            
+                                    {% elif i.status == 'In Progress' %}
+                                        <div class="spinner-grow text-warning" role="status">
+                                            <span class="visually"></span>
+                                        </div>                                        
+                                    {% else %}
+                                        <div class="spinner-grow text-success" role="status">
+                                            <span class="visually"></span>
+                                        </div>
+                                    {% endif %} 
+                                    <h5 class="card-title" style="color: rgb(18, 18, 18);">Task</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Task Assigned By : {{i.creater}}</h6>
+                                    <h6 class="card-subtitle mb-2 ">Task Name : {{i.task_name}}</h6>
+                                    <h6 class="card-subtitle mb-2 ">Status : {{i.status}}</h6>
+                                    <h6 class="card-subtitle mb-2 ">Task Assigned To : {{i.user}}</h6>
+                                    <p class="card-text">Content : {{i.content}}</p>
+                                    
+                                    <a href="{% url 'taskedit' i.id %}" class="card-link">Update Task</a>
+                                    <a href="{% url 'taskdelete' i.id %}" class="card-link">Delete Task</a>
+                                </div>
+                            </div><br><br>
+                        </div>
+                    </div>
+                </div>                
+        {% endfor %} 
+    {% else %} 
+        <h2> &nbsp;&nbsp;&nbsp;Hi {{user}}.... No any Task assigned by you... </h2>
+            
+    {% endif %} 
+{% endblock %}
+  {% endcomment %}

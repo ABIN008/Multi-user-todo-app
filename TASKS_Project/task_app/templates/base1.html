@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width-device-width, initial-scale=1, maximum-scale=1">
+        <title>TASK MANAGEMENT SYSTEM</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        {% comment %} <link rel="stylesheet" href="https://bootswatch.com/5/cerulean/bootstrap.min.css"> {% endcomment %}
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    </head>
+   
+        <nav class="navbar navbar-expand-lg " style="background-color: #071D31">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="{% url 'home' %}" style="font-weight:900; color:skyblue; ">&nbsp;  TASK MANAGEMENT SYSTEM</a>
+
+                <a class="navbar-brand" href="{% url 'home' %}">&nbsp;Home</a>
+            </div>
+        </nav>
+        <body  style="background-color: #666" >
+      
+        {% block body %}
+        {% endblock %}
+ 
+    </body>
+    {% comment %} <script src="{% static 'script.js' %}"></script> {% endcomment %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</html>

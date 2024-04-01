@@ -1,0 +1,77 @@
+
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>index</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    </head>
+    <body>
+      {% block body %}
+      <nav class="navbar navbar-expand-lg " style="background-color: #071D31">
+        <div class="container-fluid">
+            <button class="navbar-toggler"  type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="{% url 'home' %}" style="font-weight:900; color:skyblue; ">&nbsp;  TASK MANAGEMENT SYSTEM</a>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                    &nbsp; &nbsp; &nbsp;
+                    <li class="nav-item navbar_links"> 
+                        <a   href="{% url 'register' %}">Register</a>
+                    </li>
+                    &nbsp; &nbsp; &nbsp;
+                    <li class="nav-item navbar_links"> 
+                        <a   href="{% url 'login' %}">Login</a>
+                    </li>
+                    &nbsp; &nbsp; &nbsp;
+                </ul>
+            </div>
+        </div>
+    </nav>
+      
+ <div class="container-fluid">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="{% static 'img/5.jpg' %}" class="d-block w-100" alt="..." height="350px">
+              </div>
+              <div class="carousel-item">
+                <img src="{% static 'img/3108.jpg' %}" class="d-block w-100" alt="..." height="350px">
+              </div>
+              <div class="carousel-item">
+                <img src="{% static 'img/6.jpg' %}" class="d-block w-100" alt="..." height="350px">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div></div>
+          <div class="container-fluid" style="padding:50px 50px; background-color:black">
+            <p style="color:white";>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+          </div>
+        {% endblock %}
+      
+        
+        <script src="" async defer></script>
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+</html>
+
+
+
+
+

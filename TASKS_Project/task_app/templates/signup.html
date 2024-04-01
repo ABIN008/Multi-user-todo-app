@@ -1,0 +1,24 @@
+{% extends 'base1.html' %}
+{% load static %}
+
+{% load crispy_forms_tags %}
+{% block body %}
+<div class="card col-4 text-center col-lg-5 col-md-5 col-10 mt-2 mt-lg-0 mt-md-0 " style=" margin:10px auto;">
+    <div class="card-body ">
+        <h2>Registration Form</h2>
+        <form class="form-group row " method="post" style="font-size:20px;" >
+            {% csrf_token %}          
+
+            {{form|crispy}}
+            
+            <div  class='btn-group btn' style="margin:10px auto ;">                
+                <input class="btn btn-outline-primary" type="submit" value="Register">&nbsp;&nbsp;&nbsp;
+                
+
+            </div><br>
+           
+        </form>
+        <p>Already, have an account? &nbsp;&nbsp;<a href="{% url 'login' %}"> Login</a></p>
+    </div>
+</div>
+{% endblock %}

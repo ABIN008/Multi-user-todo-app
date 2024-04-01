@@ -1,0 +1,37 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+<br><br>
+{% block body %}
+<div class="container shadow-md p-5 formLayout ">
+    <div class="card text-center col-4 col-lg-4 col-md-5 col-10 mt-2 mt-lg-0 mt-md-0" style="margin:5px auto">
+        <div class="card-header">
+          Task
+        </div> 
+        <div class="card-body text-center  ">
+            <form class="form-group row " method="post"  enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form|crispy}}
+                <br>
+                
+            </form>
+            <div  class='btn-group butn'>
+                <input class="btn btn-outline-primary" type="submit" value="Edit">&nbsp;&nbsp;&nbsp;
+                
+            </div>
+        </div>
+        
+  
+
+
+    {% comment %} <h2> Hi {{user}}... Update the Task...</h2><hr>
+    <form class="form-group row " method="post"  enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form|crispy}}
+        <br>
+        <div  class='btn-group butn'>
+            <input class="btn btn-outline-primary" type="submit" value="Edit">&nbsp;&nbsp;&nbsp;
+            <input class="btn btn-outline-primary" type="reset" value="Reset">
+        </div>
+    </form></div> {% endcomment %}
+{% endblock %}

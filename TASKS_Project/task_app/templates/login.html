@@ -1,0 +1,53 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block body %}
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body style="background-image: url('{% static 'img/2.jpg' %}')">
+        <div class="card col-4 text-center col-lg-5 col-md-5 col-10 mt-2 mt-lg-0 mt-md-0" style=" margin:10px auto">
+            <div class="card-body">
+                
+                <h2>Login</h2><hr>
+                <form method="post"  class="form-group ">
+                    {% csrf_token %}
+                    {{form|crispy}}<br>
+                    <div  class='btn-group'>
+                        <input class=" btn btn-success" type="submit" value="Login"><br>
+                    </div>
+        
+                             
+                </form>
+                <hr>
+                <p>New member! &nbsp;&nbsp;<a href="{% url 'register' %}"> Register</a></p><br>
+            </div>
+        </div>
+                <br><br>
+                {% for message in messages %}
+                        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                            <p id="message-timer" class="alert alert-success float-center text-center">{{message}}</p>
+                        {% endif %}
+                {% endfor %}
+            </div>
+        {% endblock %}
+        <script src="" async defer></script>
+    </body>
+</html>
+
+
+
+
+
